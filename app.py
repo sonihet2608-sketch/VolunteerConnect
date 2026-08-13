@@ -56,7 +56,6 @@ def init_db():
     ("Het Soni", "het@student.example", generate_password_hash("Student123!"), "student"),
     ("Community Charity", "charity@volunteerconnect.example", generate_password_hash("Charity123!"), "charity"),
 ]
-    ]
 
     for name, email, password, role in demo_users:
         conn.execute(
