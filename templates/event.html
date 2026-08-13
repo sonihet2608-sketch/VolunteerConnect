@@ -53,10 +53,12 @@
         {% elif event['available_spots'] > 0 %}
 
             <form method="post"
-                  action="{{ url_for('register', event_id=event['id']) }}">
+                  
 
                 <button type="submit">
-                    Register for this event
+                    <form method="post">
+    <button type="submit">Register for this event</button>
+</form>
                 </button>
 
             </form>

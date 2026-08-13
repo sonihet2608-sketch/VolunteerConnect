@@ -5,14 +5,14 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
 
 BASE_DIR = Path(__file__).resolve().parent
-DB_PATH = BASE_DIR / "volunteerconnect.db"
+DATABASE = str(BASE_DIR / "volunteerconnect.db")
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "change-this-development-secret-key"
 
 
 def get_db():
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys = ON")
     return conn
@@ -127,6 +127,7 @@ def inject_user():
 
 
 @app.route("/", methods=["GET", "POST"])
+@app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         email = request.form.get("email", "").strip().lower()
