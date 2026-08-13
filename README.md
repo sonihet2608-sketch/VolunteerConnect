@@ -126,7 +126,7 @@ Password: Student123!
 Charity:
 
 ```text
-Email: vincent@charity.example
+Email: charity@volunteerconnect.example
 Password: Charity123!
 ```
 
