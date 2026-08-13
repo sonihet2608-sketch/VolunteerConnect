@@ -4,8 +4,6 @@ VolunteerConnect is a small web prototype that connects university students with
 
 ## Team
 
-## Team
-
 - Het Soni — Frontend, Backend, Security Audit and Social Responsibility
 
 ## 1. Problem
