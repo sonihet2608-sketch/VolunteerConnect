@@ -2,37 +2,35 @@
 
 {% block content %}
 
-<div class="page-heading">
-    <div>
-        <p class="eyebrow">VOLUNTEER OPPORTUNITY</p>
-        <h1>{{ event['title'] }}</h1>
-        <p class="muted">
-            Join this community event and make a positive difference.
-        </p>
-    </div>
-</div>
+<section class="hero">
+    <p class="eyebrow">VOLUNTEER OPPORTUNITY</p>
+    <h1>{{ event["title"] }}</h1>
+    <p class="lead">
+        Join this community event and make a positive difference.
+    </p>
+</section>
 
-<section class="card event-detail">
+<section class="card">
 
-    <div class="event-info">
+    <div class="event-meta">
         <div>
             <strong>Date</strong>
-            <span>{{ event['date'] }}</span>
+            <p>{{ event["date"] }}</p>
         </div>
 
         <div>
             <strong>Time</strong>
-            <span>{{ event['time'] }}</span>
+            <p>{{ event["time"] }}</p>
         </div>
 
         <div>
             <strong>Location</strong>
-            <span>{{ event['location'] }}</span>
+            <p>{{ event["location"] }}</p>
         </div>
 
         <div>
             <strong>Available places</strong>
-            <span>{{ event['available_spots'] }}</span>
+            <p>{{ event["available_spots"] }}</p>
         </div>
     </div>
 
@@ -40,43 +38,23 @@
 
     <h2>About this event</h2>
 
-    <p>{{ event['description'] }}</p>
+    <p>{{ event["description"] }}</p>
 
-    {% if current_user['role'] == 'student' %}
-
-        {% if registered %}
-
-            <div class="success-box">
-                ✓ You are registered for this volunteer event.
-            </div>
-
-        {% elif event['available_spots'] > 0 %}
-
-            <form method="post"
-                  
-
-                <button type="submit">
-                    <form method="post">
-    <button type="submit">Register for this event</button>
-</form>
-                </button>
-
-            </form>
-
-        {% else %}
-
-            <div class="warning-box">
-                This event is currently full.
-            </div>
-
-        {% endif %}
-
+    {% if already_registered %}
+        <p class="success">
+            ✓ You are already registered for this event.
+        </p>
+    {% else %}
+        <form method="post">
+            <button type="submit">Register for this event</button>
+        </form>
     {% endif %}
 
-    <a class="button secondary"
-       href="{{ url_for('dashboard') }}">
-        ← Back to dashboard
-    </a>
+    <p>
+        <a class="button secondary" href="{{ url_for('dashboard') }}">
+            ← Back to dashboard
+        </a>
+    </p>
 
 </section>
 
