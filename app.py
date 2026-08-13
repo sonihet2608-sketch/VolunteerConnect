@@ -53,8 +53,9 @@ def init_db():
     """)
 
     demo_users = [
-        ("Het Soni", "het@student.example", generate_password_hash("Student123!"), "student"),
-        ("Vincent", "vincent@charity.example", generate_password_hash("Charity123!"), "charity"),
+    ("Het Soni", "het@student.example", generate_password_hash("Student123!"), "student"),
+    ("Community Charity", "charity@volunteerconnect.example", generate_password_hash("Charity123!"), "charity"),
+]
     ]
 
     for name, email, password, role in demo_users:
@@ -66,7 +67,7 @@ def init_db():
     count = conn.execute("SELECT COUNT(*) AS c FROM events").fetchone()["c"]
     if count == 0:
         charity = conn.execute(
-            "SELECT id FROM users WHERE email = ?", ("vincent@charity.example",)
+            "SELECT id FROM users WHERE email = ?", ("charity@volunteerconnect.example",)
         ).fetchone()
         conn.execute("""
             INSERT INTO events
