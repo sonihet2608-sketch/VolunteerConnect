@@ -219,19 +219,16 @@ Foreign keys and a unique registration constraint reduce invalid and duplicate d
 
 ## 11. Testing
 
-The project includes tests for:
+The project includes automated tests for:
 
-- Successful login
 - Invalid login
-- Student registration
-- Duplicate registration
-- Charity event creation
+- Successful student login
+- SQL Injection login bypass prevention
 
 Run:
 
 ```bash
-pytest
-```
+python -m pytest
 
 ## 12. Social Responsibility Statement
 
