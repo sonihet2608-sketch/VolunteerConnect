@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-heading">
+    <div>
+        <p class="eyebrow">VOLUNTEER OPPORTUNITY</p>
+        <h1>{{ event['title'] }}</h1>
+        <p class="muted">
+            Join this community event and make a positive difference.
+        </p>
+    </div>
+</div>
+
+<section class="card event-detail">
+
+    <div class="event-info">
+        <div>
+            <strong>Date</strong>
+            <span>{{ event['date'] }}</span>
+        </div>
+
+        <div>
+            <strong>Time</strong>
+            <span>{{ event['time'] }}</span>
+        </div>
+
+        <div>
+            <strong>Location</strong>
+            <span>{{ event['location'] }}</span>
+        </div>
+
+        <div>
+            <strong>Available places</strong>
+            <span>{{ event['available_spots'] }}</span>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2>About this event</h2>
+
+    <p>{{ event['description'] }}</p>
+
+    {% if current_user['role'] == 'student' %}
+
+        {% if registered %}
+
+            <div class="success-box">
+                ✓ You are registered for this volunteer event.
+            </div>
+
+        {% elif event['available_spots'] > 0 %}
+
+            <form method="post"
+                  action="{{ url_for('register', event_id=event['id']) }}">
+
+                <button type="submit">
+                    Register for this event
+                </button>
+
+            </form>
+
+        {% else %}
+
+            <div class="warning-box">
+                This event is currently full.
+            </div>
+
+        {% endif %}
+
+    {% endif %}
+
+    <a class="button secondary"
+       href="{{ url_for('dashboard') }}">
+        ← Back to dashboard
+    </a>
+
+</section>
+
+{% endblock %}
