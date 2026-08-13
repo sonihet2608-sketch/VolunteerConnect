@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div>
+        <p class="eyebrow">COMMUNITY • STUDENTS • IMPACT</p>
+        <h1>Find a way to help.</h1>
+        <p class="lead">
+            VolunteerConnect connects students with simple,
+            local volunteer opportunities.
+        </p>
+    </div>
+</section>
+
+<section class="card auth-card">
+    <h2>Sign in</h2>
+
+    <form method="post" autocomplete="off">
+        <label for="email">Email</label>
+        <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            maxlength="150"
+        >
+
+        <label for="password">Password</label>
+        <input
+            id="password"
+            name="password"
+            type="password"
+            required
+            maxlength="128"
+        >
+
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="demo-box">
+        <strong>Demo account</strong>
+        <p>
+            Student:
+            <code>het@student.example</code>
+        </p>
+        <p>
+            Password:
+            <code>Student123!</code>
+        </p>
+    </div>
+</section>
+{% endblock %}
