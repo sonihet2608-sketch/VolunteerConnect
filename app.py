@@ -127,6 +127,7 @@ def inject_user():
 
 @app.route("/register", methods=["POST"])
 def register():
+    print("REGISTER DATA:", request.form)
     name = request.form.get("name", "").strip()
     email = request.form.get("email", "").strip().lower()
     password = request.form.get("password", "")
