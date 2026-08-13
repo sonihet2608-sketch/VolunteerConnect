@@ -1,5 +1,5 @@
 VolunteerConnect
 RFP: Community Volunteer Board
-Team: Het Soni + Vincent
+Team: Het Soni
 Core screens: Login, Dashboard, Event Details
 Database entities: Users, Events, Registrations
