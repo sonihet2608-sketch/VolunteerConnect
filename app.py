@@ -125,6 +125,47 @@ def current_user():
 def inject_user():
     return {"current_user": current_user()}
 
+@app.route("/register", methods=["POST"])
+def register():
+    name = request.form.get("name", "").strip()
+    email = request.form.get("email", "").strip().lower()
+    password = request.form.get("password", "")
+
+    if not name or not email or not password:
+        flash("Name, email and password are required.", "error")
+        return render_template("login.html")
+
+    if len(name) > 100 or len(email) > 150 or len(password) < 8:
+        flash("Please provide valid details. Password must be at least 8 characters.", "error")
+        return render_template("login.html")
+
+    conn = get_db()
+
+    existing = conn.execute(
+        "SELECT id FROM users WHERE email = ?",
+        (email,)
+    ).fetchone()
+
+    if existing:
+        conn.close()
+        flash("An account with this email already exists. Please log in.", "error")
+        return render_template("login.html")
+
+    conn.execute(
+        "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)",
+        (name, email, generate_password_hash(password), "student")
+    )
+    conn.commit()
+    conn.close()
+
+    flash("Account created successfully. Please log in.", "success")
+    return render_template("login.html")
+
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("login"))
 
 @app.route("/", methods=["GET", "POST"])
 @app.route("/login", methods=["GET", "POST"])
@@ -153,13 +194,6 @@ def login():
         flash("Invalid email or password.", "error")
 
     return render_template("login.html")
-
-
-@app.route("/logout")
-def logout():
-    session.clear()
-    return redirect(url_for("login"))
-
 
 @app.route("/dashboard")
 @login_required
