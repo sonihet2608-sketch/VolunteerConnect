@@ -4,8 +4,9 @@ VolunteerConnect is a small web prototype that connects university students with
 
 ## Team
 
-- **Het Soni** — Frontend, Security Audit and Social Responsibility
-- **Vincent** — Backend, Database and Testing
+## Team
+
+- Het Soni — Frontend, Backend, Security Audit and Social Responsibility
 
 ## 1. Problem
 
@@ -297,22 +298,16 @@ These are outside the current prototype scope.
 ### Het Soni
 
 - Frontend implementation
+- Backend implementation
 - User interface styling
-- Security review
-- SQL Injection audit
-- Social responsibility and ACM ethics documentation
-- README documentation
-
-### Vincent
-
-- Flask backend
 - SQLite database
 - Authentication logic
 - Event and registration functionality
+- Security review
+- SQL Injection audit
 - Functional testing
-- Bug fixing
-
-Both team members must make genuine GitHub commits reflecting their actual work.
+- Social responsibility and ACM ethics documentation
+- README documentation
 
 ## 17. Important Academic Integrity Note
 
