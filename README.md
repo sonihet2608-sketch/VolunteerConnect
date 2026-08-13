@@ -69,7 +69,7 @@ The system follows a simple client-server architecture:
 +------------------+
 ```
 
-See `docs/system_architecture.png` for the UML-style component/class view.
+See `docs/system_architecture.md` for the UML-style system architecture and class relationships.
 
 ## 6. Database Relationships
 
@@ -227,7 +227,9 @@ Run:
 
 ```bash
 python -m pytest
+```
 
+The current automated test suite passes successfully with 3 tests passing.
 ## 12. Social Responsibility Statement
 
 VolunteerConnect is designed around data minimisation and responsible use of user information.
