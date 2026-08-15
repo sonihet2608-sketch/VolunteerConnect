@@ -306,6 +306,13 @@ These are outside the current prototype scope.
 - Social responsibility and ACM ethics documentation
 - README documentation
 
-## 17. Important Academic Integrity Note
 
-Generative AI was used as a development assistant. The final code and documentation must be reviewed and understood by the team before submission. GitHub commit history should accurately reflect each person's real contribution. No artificial or misleading commits should be created.
+## 17. Academic Integrity and AI Use
+
+Generative AI tools were used as development assistants during this project, including for code suggestions, debugging support, explanations and documentation assistance.
+
+All AI-assisted outputs were reviewed, tested and modified by the project team before being included in the final prototype. The team remained responsible for the final design, implementation, security decisions and documentation.
+
+AI-generated content was not treated as automatically correct. In particular, authentication, input validation, database queries and SQL Injection protections were manually reviewed and tested.
+
+GitHub commit history is intended to reflect the team's actual development work and contributions. No artificial or misleading commits were created solely to increase contribution records.
